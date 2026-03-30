@@ -1,0 +1,18 @@
+{
+  "name": "xss-shield-node",
+  "version": "1.0.0",
+  "description": "A framework-less Node.js security sandbox for detecting, bouncing, or neutralizing malicious XSS payloads in real-time.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "security",
+    "xss-protection",
+    "vanilla-js",
+    "backend-engineering"
+  ],
+  "author": "Pascal",
+  "license": "ISC"
+}
