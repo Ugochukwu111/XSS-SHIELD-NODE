@@ -1,0 +1,381 @@
+/* =====================================================
+GLOBAL RESET & BOX MODEL
+=====================================================
+*/
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Crucial: padding won't increase element width */
+  -webkit-font-smoothing: antialiased; /* Makes fonts look sharper on Mac */
+  -moz-osx-font-smoothing: grayscale;
+  /* overflow: hidden; */
+}
+
+/* =====================================================
+BASE ELEMENT DEFAULTS
+Overriding browser-specific "junk" styling
+=====================================================
+*/
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  background-color: var(); /* Your deep slate color */
+  color: var();
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Remove default list styling for your "Armory" */
+ul, ol {
+  list-style: none;
+}
+
+/* Ensure images and media don't overflow containers */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Make inputs and buttons inherit your clean typography */
+input, button, textarea, select {
+  font: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Remove blue "glow" on clicks, but keep it for keyboard users (Accessibility) */
+button:focus, input:focus, textarea:focus {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
+}
+
+/* Remove default link underlines */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Prevent textareas from breaking your layout */
+textarea {
+  resize: vertical; /* Only allow resizing up/down */
+}
+
+
+
+/* =====================================================
+ FLUID TYPOGRAPHY
+=====================================================
+*/
+
+h1 { 
+  font-size: clamp(1.73rem, 1.5rem + 1.18vw, 2.34rem); 
+}
+
+h2 { 
+  font-size: clamp(1.44rem, 1.28rem + 0.82vw, 1.88rem); 
+}
+
+h3 { 
+  font-size: clamp(1.2rem, 1.09rem + 0.55vw, 1.5rem); 
+}
+
+h4 { 
+  font-size: clamp(1rem, 0.93rem + 0.35vw, 1.2rem); 
+}
+
+h5 { 
+  font-size: clamp(0.83rem, 0.79rem + 0.21vw, 0.96rem); 
+}
+
+h6 { 
+  font-size: clamp(0.69rem, 0.67rem + 0.11vw, 0.77rem); 
+}
+
+/* Base text for paragraphs and inputs */
+p, li, span, input, textarea { 
+  font-size: clamp(1rem, 0.93rem + 0.35vw, 1.2rem); 
+}
+
+/* Tiny metadata */
+small { 
+  font-size: clamp(0.83rem, 0.79rem + 0.21vw, 0.96rem); 
+}
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #0a0a0d;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-monospaced: #cbd5e1;
+
+  --primary-accent: #10b981;
+  --primary-accent-hover: #059669;
+  
+  --card-bg: #1e293b;
+  --toggle-inactive: #404040;
+  --border-subtle: #1e293b;
+  --input-placeholder: #6b7280;
+
+  --alert-red: #ef4444;
+  --alert-red-subtle: #dc2626;
+  
+  --success-green: #22c55e;
+  --verified-badge: #047857;
+
+  --input-zone-bg: #27272a;
+  --input-zone-text: #e4e4e7;
+  --input-zone-placeholder: #71717a;
+}
+
+
+
+
+/* =====================================================
+ ==================== UTILITIES ================
+=====================================================
+*/
+
+/* =====================================================
+BACKGROUND UTILITIES
+=====================================================
+*/
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-accent { background-color: var(--primary-accent); }
+.bg-card { background-color: var(--card-bg); }
+.bg-input { background-color: var(--input-zone-bg); }
+.bg-alert { background-color: var(--alert-red); }
+.bg-success { background-color: var(--success-green); }
+.bg-verified { background-color: var(--verified-badge); }
+
+/* =====================================================
+TEXT COLOR UTILITIES
+=====================================================
+*/
+.text-main { color: var(--text-primary); }
+.text-muted { color: var(--text-secondary); }
+.text-code { color: var(--text-monospaced); }
+.text-accent { color: var(--primary-accent); }
+.text-alert { color: var(--alert-red); }
+.text-success { color: var(--success-green); }
+.text-placeholder { color: var(--input-placeholder); }
+
+/* =====================================================
+BORDER UTILITIES (Useful for the Dashboard Grid)
+=====================================================
+*/
+.border-subtle { border: 1px solid var(--border-subtle); }
+.border-accent { border: 1px solid var(--primary-accent); }
+.border-alert { border: 1px solid var(--alert-red); }
+
+
+
+/* =====================================================
+FLEX(LAYOUT) UTILITIES
+=====================================================
+*/
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+
+/* Alignment */
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+/* Spacing & Sizing */
+.flex-1 { flex: 1; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-4 { gap: 2rem; }
+
+/* Dashboard Specific */
+.h-full { height: 100%; }
+.w-full { width: 100%; }
+
+
+
+.font-thin     { font-weight: 100; }
+.font-light    { font-weight: 300; }
+.font-normal   { font-weight: 400; } /* Default body weight */
+.font-medium   { font-weight: 500; } /* UI labels & Buttons */
+.font-semibold { font-weight: 600; } /* Sub-headers */
+.font-bold     { font-weight: 700; } /* Main Titles */
+.font-black    { font-weight: 900; }
+
+.uppercase      { text-transform: uppercase; }
+.tracking-wide  { letter-spacing: 0.05em; } /* Adds "breathing room" to caps */
+.tracking-tight { letter-spacing: -0.02em; } /* Good for large H1s */
+
+
+.text-start { text-align: left; }
+.text-center { text-align: center; }
+.text-end { text-align: right; }
+
+/* !!!========= important utility 
+===== used in the side bar and in the body */
+.scrollable-container{
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  /* padding: .5em; */
+}
+
+/* =====================================================
+DIVIDER WITH TEXT UTILITY
+=====================================================
+*/
+
+.separator-container {
+  /* Controls the vertical spacing around the divider */
+  margin: .5rem 0; 
+}
+
+.line {
+  /* This creates the thin 1px line */
+  height: 1px;
+  background-color: var(--border-subtle); /* Using your slate border color */
+  opacity: 0.5; /* Makes it subtle so it doesn't distract from text */
+}
+
+/* Optional: If you want the lines to be dashed like a blueprint */
+.line-dashed {
+  border-top: 1px dashed var(--border-subtle);
+  height: 0;
+  background: none;
+}
+
+
+header{
+  padding: .25em 1em;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.aside-main-container{
+  overflow: hidden;
+}
+
+.aside-main-container aside{
+  padding: .25em;
+  max-width: 350px;
+}
+
+/* .aside-main-container aside{
+  overflow: scroll;
+} */
+
+.xss-scripts-list-container{
+  margin: .5em 0;
+}
+
+.aside-main-container ul{
+  gap: .5em;
+}
+
+.aside-main-container ul li{
+  background-color: var(--input-zone-bg);
+  color: var(--text-primary);
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;/*so the copy button can be positioned absolutely*/
+}
+
+.aside-main-container li .upper-text-container{
+  padding: .5em;
+ 
+}
+.aside-main-container li  pre{
+  margin-bottom: -.05em;
+  border-top: 1px solid var(--text-muted);
+   font-size: clamp(0.83rem, 0.79rem + 0.21vw, 0.96rem);
+}
+
+.aside-main-container li  pre code{
+
+  font-size: clamp(0.83rem, 0.79rem + 0.21vw, 0.96rem);
+}
+
+.aside-main-container li  button{
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  padding: .25em;
+  border-radius: 50%;
+    border: 1px solid transparent;
+    transition: all 200ms ease;
+
+}
+.aside-main-container li  button:hover{
+  border: 1px solid var(--text-primary);
+}
+.aside-main-container li  button:active{
+  opacity: .7;
+}
+
+.input-container{
+  padding:  1em .5em;
+
+}
+
+.input-container .input-wrapper{
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+}
+
+.input-container input{
+padding: .55em 1.5em;
+border-radius: 2rem;
+flex: 1;
+box-shadow:  2px 2px 5px rgba(0,0,0,0.1), -2px -2px 5px rgba(255,255,255,0.1);
+border: 1px solid var(--input-placeholder);
+}
+
+.cards-container{
+   display: flex;
+  flex-wrap: wrap;
+  gap: .5em;
+}
+
+.cards-container .card{
+  background-color: var(--card-bg);
+  border-radius: .5em;
+  padding: 1em;
+
+  flex: 1 1 300px;
+  height: 150px;
+}
+
+.cards-container .card .body{
+  font-size: clamp(0.83rem, 0.79rem + 0.21vw, 0.96rem);
+  margin: .25em 0;
+}
+
+.cards-container .card .time-stamp{
+  font-size: clamp(0.53rem, 0.79rem + 0.21vw, 0.76rem);
+  margin: .25em 0;
+}
+
+
+
+.input-container button{
+  position: absolute;
+  right: .5em;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: .5em;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: all 200ms ease;
+}
