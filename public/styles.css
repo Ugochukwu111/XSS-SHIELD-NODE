@@ -102,7 +102,7 @@ h6 {
 }
 
 /* Base text for paragraphs and inputs */
-p, li, span, input, textarea { 
+p, li, input, textarea { 
   font-size: clamp(1rem, 0.93rem + 0.35vw, 1.2rem); 
 }
 
@@ -192,8 +192,10 @@ FLEX(LAYOUT) UTILITIES
 /* Alignment */
 .items-center { align-items: center; }
 .items-start { align-items: flex-start; }
+.items-end{align-items: end;}
 .justify-between { justify-content: space-between; }
 .justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
 
 /* Spacing & Sizing */
 .flex-1 { flex: 1; }
@@ -223,159 +225,3 @@ FLEX(LAYOUT) UTILITIES
 .text-start { text-align: left; }
 .text-center { text-align: center; }
 .text-end { text-align: right; }
-
-/* !!!========= important utility 
-===== used in the side bar and in the body */
-.scrollable-container{
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  /* padding: .5em; */
-}
-
-/* =====================================================
-DIVIDER WITH TEXT UTILITY
-=====================================================
-*/
-
-.separator-container {
-  /* Controls the vertical spacing around the divider */
-  margin: .5rem 0; 
-}
-
-.line {
-  /* This creates the thin 1px line */
-  height: 1px;
-  background-color: var(--border-subtle); /* Using your slate border color */
-  opacity: 0.5; /* Makes it subtle so it doesn't distract from text */
-}
-
-/* Optional: If you want the lines to be dashed like a blueprint */
-.line-dashed {
-  border-top: 1px dashed var(--border-subtle);
-  height: 0;
-  background: none;
-}
-
-
-header{
-  padding: .25em 1em;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.aside-main-container{
-  overflow: hidden;
-}
-
-.aside-main-container aside{
-  padding: .25em;
-  max-width: 350px;
-}
-
-/* .aside-main-container aside{
-  overflow: scroll;
-} */
-
-.xss-scripts-list-container{
-  margin: .5em 0;
-}
-
-.aside-main-container ul{
-  gap: .5em;
-}
-
-.aside-main-container ul li{
-  background-color: var(--input-zone-bg);
-  color: var(--text-primary);
-  border-radius: 1rem;
-  overflow: hidden;
-  position: relative;/*so the copy button can be positioned absolutely*/
-}
-
-.aside-main-container li .upper-text-container{
-  padding: .5em;
- 
-}
-.aside-main-container li  pre{
-  margin-bottom: -.05em;
-  border-top: 1px solid var(--text-muted);
-   font-size: clamp(0.83rem, 0.79rem + 0.21vw, 0.96rem);
-}
-
-.aside-main-container li  pre code{
-
-  font-size: clamp(0.83rem, 0.79rem + 0.21vw, 0.96rem);
-}
-
-.aside-main-container li  button{
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  padding: .25em;
-  border-radius: 50%;
-    border: 1px solid transparent;
-    transition: all 200ms ease;
-
-}
-.aside-main-container li  button:hover{
-  border: 1px solid var(--text-primary);
-}
-.aside-main-container li  button:active{
-  opacity: .7;
-}
-
-.input-container{
-  padding:  1em .5em;
-
-}
-
-.input-container .input-wrapper{
-  flex: 1;
-  max-width: 600px;
-  position: relative;
-}
-
-.input-container input{
-padding: .55em 1.5em;
-border-radius: 2rem;
-flex: 1;
-box-shadow:  2px 2px 5px rgba(0,0,0,0.1), -2px -2px 5px rgba(255,255,255,0.1);
-border: 1px solid var(--input-placeholder);
-}
-
-.cards-container{
-   display: flex;
-  flex-wrap: wrap;
-  gap: .5em;
-}
-
-.cards-container .card{
-  background-color: var(--card-bg);
-  border-radius: .5em;
-  padding: 1em;
-
-  flex: 1 1 300px;
-  height: 150px;
-}
-
-.cards-container .card .body{
-  font-size: clamp(0.83rem, 0.79rem + 0.21vw, 0.96rem);
-  margin: .25em 0;
-}
-
-.cards-container .card .time-stamp{
-  font-size: clamp(0.53rem, 0.79rem + 0.21vw, 0.76rem);
-  margin: .25em 0;
-}
-
-
-
-.input-container button{
-  position: absolute;
-  right: .5em;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: .5em;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  transition: all 200ms ease;
-}

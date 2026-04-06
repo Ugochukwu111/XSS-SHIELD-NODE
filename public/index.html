@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="index.css">
 
     <title>XSS- shield node</title>
 
@@ -18,11 +19,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   </head>
 
-  <body class="">
-    <div class="h-full border-alert flex flex-col">
+  <body class="bg-primary">
+    <div class="h-full flex flex-col bg-primary">
       <header class="flex justify-between items-center">
         <div>
-          <h1>XSS shield node</h1>
+          <h1 class="text-main">XSS <strong class="text-success">Shield</strong> Node</h1>
           <p class="text-muted">
             Real time security pattern detection and sanitization testing
           </p>
@@ -39,8 +40,8 @@
       <div class="flex-1 flex aside-main-container h-full">
         <aside class="h-full flex flex-col  h-full">
 
-          <div>
-            <h2>The Armory</h2>
+          <div class="heading-text">
+            <h2 class="text-main">The Armory</h2>
             <p class="text-muted">Payload Gallery</p>
           </div>
 
@@ -75,7 +76,7 @@
                   <p class="flex flex-col">
                     <span>Basic XSS</span>
                     <small class="text-muted"
-                      >Classic script injection attack</small
+                      >Classic script injection <strong> attack </strong> </small
                     >
                   </p>
                   <button>
@@ -110,15 +111,15 @@
           </a>
         </aside>
 
-        <main class="border-alert flex flex-col flex-1 ">
-          <div>
-            <h2>Live Attack Simulation</h2>
-            <p>Test your defenses in real time</p>
+        <main class="flex flex-col flex-1 ">
+          <div class="flex flex-col justify-end items-end">
+            <h2 class="flex items-center gap-1 text-main">Live <strong class="text-alert"> Attack </strong>  Simulation <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></h2>
+            <p class="text-code">Test your defenses in real time</p>
           </div>
 
-          <div class="border-alert  flex-1 scrollable-container">
+          <div class=" flex-1 scrollable-container bg-secondary">
             <!--  injected javascript of no scripts detected html cards  -->
-              <div class="cards-container">
+              <div class="cards-container ">
               <div class="card flex flex-col justify-between">
                 <p class="title text-main flex justify-between items-center">
                   Scripts detected &nbsp; 
@@ -162,7 +163,7 @@
 
           </div>
 
-          <div class="input-container border-alert flex items-center gap-2 justify-center">
+          <div class="input-container bg-secondary flex items-center gap-2 justify-center">
             <div class="input-wrapper flex items-center justify-center ">
             <input
               type="text"
