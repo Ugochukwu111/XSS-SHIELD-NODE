@@ -39,6 +39,7 @@ header{
 
 .aside-main-container{
   overflow: hidden;
+  position: relative;
 }
 
 .aside-main-container aside{
@@ -47,15 +48,14 @@ header{
   padding-right: .8em;
   padding-bottom: 1em;
   max-width: 350px;
+  transition: all 300ms ease;
+  transform: translateX(0%);
+  position: static;
 }
 
 .aside-main-container aside .heading-text{
   padding-left: .5em;
 }
-
-/* .aside-main-container aside{
-  overflow: scroll;
-} */
 
 .xss-scripts-list-container{
   margin: .5em 0;
@@ -122,6 +122,11 @@ border-radius: 2rem;
 flex: 1;
 box-shadow:  2px 2px 5px rgba(0,0,0,0.1), -2px -2px 5px rgba(255,255,255,0.1);
 border: 1px solid var(--input-placeholder);
+transition: all 200ms ease;
+}
+
+.input-container input:hover{
+  border: 1px solid var(--text-primary);
 }
 
 .cards-container{
@@ -159,6 +164,54 @@ border: 1px solid var(--input-placeholder);
   transform: translateY(-50%);
   padding: .5em;
   border-radius: 50%;
-  border: 1px solid transparent;
+  border: 1px solid var(--input-placeholder);
   transition: all 200ms ease;
+}
+
+.input-container button svg{
+fill: var(--input-placeholder);
+}
+
+#side-bar-btn{
+  color: var(--text-primary);
+  display: none;
+}
+.menu-tab{
+  padding: 1em;
+  justify-content: end;
+}
+
+#side-bar-wrapper{
+ display: none;
+}
+
+
+
+
+/* ========== 
+     MEDIA QUERIES
+  ============= */
+@media (max-width: 850px) {
+  .aside-main-container aside{
+    position: fixed;
+    z-index: 999;
+    transform: translateX(-100%); /*hide side bar */
+  }
+    .aside-main-container aside.show{
+    transform: translateX(0%); /*hide side bar */
+  }
+  #side-bar-btn{
+  display: flex;
+}
+.menu-tab{
+  justify-content: space-between;
+}
+#side-bar-wrapper{
+  position: absolute;
+  inset: 0;
+  background-color: rgba(4, 4, 37, 0.605);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
 }

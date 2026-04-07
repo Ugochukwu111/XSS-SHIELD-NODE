@@ -65,7 +65,7 @@ a {
   color: inherit;
 }
 
-/* Prevent textareas from breaking your layout */
+/* Prevent text areas from breaking your layout */
 textarea {
   resize: vertical; /* Only allow resizing up/down */
 }
