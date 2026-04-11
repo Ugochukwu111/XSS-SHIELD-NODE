@@ -28,8 +28,6 @@ function toggleSideBar() {
   }
 }
 
-
-
 sideBarBtn.addEventListener('click', ()=>{
   toggleSideBar()
 })
@@ -38,13 +36,7 @@ sideBarWrapper.addEventListener('click', ()=>{
   toggleSideBar()
 })
 
-// const mediaQuery = window.matchMedia('(max-width: 851px)');
 
-// mediaQuery.addEventListener('change', (e) => {
-//   if (e.matches) {
-//     sideBarEl.style.transform = 'translateX(0%)';
-//   }
-// });
 
 
 
