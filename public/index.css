@@ -116,13 +116,29 @@ header{
   position: relative;
 }
 
-.input-container input{
-padding: .55em 1.5em;
+.input-container textarea{
+padding: .255em 1.5em;
 border-radius: 2rem;
 flex: 1;
 box-shadow:  2px 2px 5px rgba(0,0,0,0.1), -2px -2px 5px rgba(255,255,255,0.1);
 border: 1px solid var(--input-placeholder);
 transition: all 200ms ease;
+background-color: var(--bg-primary);
+color: var(--text-primary);
+
+  white-space: pre-wrap;   /* allows wrapping */
+  word-wrap: break-word;   /* breaks long words if needed */
+  overflow-x: hidden;      /* hides horizontal scroll */
+  resize: none;  
+  scrollbar-width: none;
+
+}
+textarea::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+input::placeholder{
+  color: var(--text-secondary);
 }
 
 .input-container input:hover{
