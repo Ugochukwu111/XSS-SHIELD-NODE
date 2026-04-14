@@ -1,42 +1,52 @@
 
 # 🛡️ XSS-Shield-Node
-###  An Interactive Security Sandbox & Backend Engine
+### A Framework-less Node.js XSS Security Sandbox
 
-A framework-less Node.js application designed to detect, neutralize, and log malicious XSS (Cross-Site Scripting) payloads in real-time.
-
-
-
-## 🚀 The Engineering Challenge
-Most developers jump straight to frameworks. I built this using **Raw Node.js** to master:
-* **Manual Routing:** Handling requests without middleware abstractions.
-* **Buffer Streams:** Parsing `POST` request data chunks manually.
-* **Event-Driven Architecture:** Using the `EventEmitter` for internal security alerts.
-* **Security First:** Custom HTML sanitization to protect user data.
+A raw Node.js application that serves a static frontend, accepts JSON payloads, sanitizes submitted content with `sanitize-html`, and saves cleaned payloads locally.
 
 
+## 🚀 What the Code Actually Implements
+This repo uses plain Node.js and minimal dependencies:
+* **Manual Routing:** `server.js` routes POST `/api/upload/` to a custom handler and serves static files otherwise.
+* **Static File Serving:** `serveStatic.js` reads files from `public/` and returns them with the correct MIME type.
+* **Input Sanitization:** `utils/sanitizeData.js` uses `sanitize-html` to strip disallowed HTML tags.
+* **Data Storage:** `utils/uploadToDb.js` appends sanitized payloads to `data/data.json`.
 
-## 🕹️ Interactive Features
+
+## 🧩 Actual Features
 | Feature | Description |
 | :--- | :--- |
-| **Bouncer Mode** | The server detects a threat and **rejects** the input entirely (400 Bad Request). |
-| **Filter Mode** | The server **neutralizes** the threat, strips the code, and saves only clean text. |
-| **Security Logs** | Real-time terminal feedback via `EventEmitter` when an intrusion is detected. |
+| **Static frontend** | Serves the dashboard UI from `public/index.html` and asset files. |
+| **API upload endpoint** | Accepts POST requests at `/api/upload/` with JSON body content. |
+| **HTML sanitization** | Uses `sanitize-html` to clean incoming data before saving. |
+| **Local data persistence** | Stores submissions in `data/data.json`. |
+
 
 
 ## 🛠️ Technical Stack
-* **Backend:** Node.js (Core `http`, `fs`, `events` modules)
-* **Frontend:** Vanilla JavaScript, Semantic HTML5, CSS3
-
+* **Backend:** Node.js (`http`, `fs`, `path`)
+* **Frontend:** Vanilla JavaScript, HTML, CSS
+* **Dependencies:** `sanitize-html`, `nodemon`
 
 
 ## 📋 Quality Checklist
-* [cite_start][x] **Clean Code:** Small, single-responsibility functions[cite: 33].
-* [cite_start][x] **Accessibility:** Semantic HTML and ARIA labels[cite: 37].
-* [cite_start][x] **Professional Git:** Atomic commits with `feat`, `fix`, and `refactor` prefixes[cite: 36].
-
+* [x] **Clean Code:** Small, single-responsibility functions.
+* [x] **Static serving:** Minimal custom router without framework abstractions.
+* [x] **Sanitization:** Uses a dedicated sanitization utility.
 
 
 ## 📖 Getting Started
 1. **Clone the repo:**
    ```bash
-   git clone [https://github.com/Ugochukwu111/XSS-SHIELD-NODE.git](https://github.com/Ugochukwu111/XSS-SHIELD-NODE.git)
+   git clone https://github.com/Ugochukwu111/XSS-SHIELD-NODE.git
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the server:**
+   ```bash
+   node server.js
+   ```
+4. **Open the app:**
+   Visit `http://localhost:5000` in your browser.
